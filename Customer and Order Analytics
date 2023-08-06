@@ -26,7 +26,7 @@ AND orderID <> 'Order ID';
 
 SELECT DISTINCT Product, price
 FROM BIT_DB.JanSales
-WHERE  price IN (SELECT min(price) FROM BIT_DB.JanSales);
+WHERE  price IN (SELECT MIN(price) FROM BIT_DB.JanSales);
 
 #5. What is the total revenue for each product sold in January?
 
