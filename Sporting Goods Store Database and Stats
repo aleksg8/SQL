@@ -1,5 +1,5 @@
 /** Items: Bike ($100, 5, A1), Skis($80, 18, A1), Jacket($41, 12, A3), Tent($200, 12, A1), 
-Boots($40, 4, A1), Ball($30, 5, A2), Pants($40, 10, A1), Bat($55, 12, A3), Glove($60, 17, A1), 
+Boots($40, 4, A1), Ball($30, 5, A2), Pants($40, 10, A1), Bat($55, 12, A3), Gloves($60, 17, A1), 
 Baseball($70, 19, A2), Rollerblades($80,13, A4), Rifle($200, 2, A4), Bullet($15, 18, A4), 
 Battery($50, 2, A4), Flashlight($20, 1, A4)
 
@@ -16,7 +16,7 @@ INSERT INTO store VALUES
 (6,'ball', 30, 5, 2),
 (7,'pants', 40, 10, 1),
 (8,'bat', 55, 12, 3),
-(9,'glove', 60, 17, 1),
+(9,'gloves', 60, 17, 1),
 (10,'baseball', 70, 19, 2),
 (11,'rollerblades', 80, 13, 4),
 (12,'rifle', 200, 2, 4),
