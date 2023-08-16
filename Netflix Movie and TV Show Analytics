@@ -76,7 +76,7 @@ ORDER BY title;
 
 SELECT director FROM "netflix_people" people
 LEFT JOIN "netflix_titles_info" titles
-ON people."show_id" = titles."show_id"
+ON people.show_id = titles.show_id
 WHERE titles.title = 'The Starling';
 
 # 5. What is the oldest movie in the database and what year was it made?
