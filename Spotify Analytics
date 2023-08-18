@@ -23,14 +23,13 @@ duration_ms integer NOT NULL,
 time_signature integer NOT NULL 
 )
 
-#Then I inserted the Spotify Data .csv into the table.
+#Then I inserted the Spotify Data .csv into the table. 
 
-#Next, I explored the data using the following SQL. 
-
-#First I determined the top artists with a score of at least 90 by averaging the score of each artist's songs. 
+#First, I wanted to determine the top artists with a score of at least 90 by averaging the score of each artist's songs. 
 #I then ordered from most to least popular.
 
-SELECT artist_name, AVG(popularity) AS average_popularity FROM BIT_DB.Spotifydata
+SELECT artist_name, AVG(popularity) AS average_popularity 
+FROM BIT_DB.Spotifydata
 GROUP BY artist_name HAVING average_popularity >= 90
 ORDER BY average_popularity DESC
 
@@ -49,5 +48,28 @@ SELECT  artist_name,
 FROM popularity_average_CTE
 WHERE average_popularity >= 90
 ORDER BY average_popularity DESC;
+
+#Then, I wanted to find out how the average tempo of the top ten songs compared to the average tempo of all songs on the list.
+
+#The following SQL was used to find the average tempo of the top ten songs.
+
+SELECT ROUND(AVG(tempo))
+AS average_tempo_of_top_ten
+FROM SpotifyData 
+WHERE popularity IN 
+(SELECT popularity FROM SpotifyData ORDER BY popularity DESC LIMIT 10);
+
+#Then the following SQL was used to find the average tempo of all songs on the list:
+
+SELECT ROUND(AVG(tempo))
+AS average_tempo_of_all
+FROM SpotifyData 
+WHERE popularity IN 
+(SELECT popularity FROM SpotifyData ORDER BY popularity);
+
+#Interestingly, the average tempo of the top ten was 15 BPM higher at 136 BPM compared to 121 BPM average of all the songs!
+
+
+
 
 
