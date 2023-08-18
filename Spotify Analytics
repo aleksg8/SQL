@@ -34,4 +34,20 @@ SELECT artist_name, AVG(popularity) AS average_popularity FROM BIT_DB.Spotifydat
 GROUP BY artist_name HAVING average_popularity >= 90
 ORDER BY average_popularity DESC
 
+#Afterwards, I utilized a CTE and added a column which would label the top aritsts as "Top Star"
+
+WITH popularity_average_CTE AS (
+SELECT s.artist_name,
+AVG(s.popularity) AS average_popularity
+FROM SpotifyData s
+GROUP BY s.artist_name
+)
+
+SELECT  artist_name,
+        average_popularity,
+        'Top Star' AS tag
+FROM popularity_average_CTE
+WHERE average_popularity >= 90
+ORDER BY average_popularity DESC;
+
 
