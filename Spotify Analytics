@@ -63,9 +63,7 @@ WHERE popularity IN
 
 SELECT ROUND(AVG(tempo))
 AS average_tempo_of_all
-FROM SpotifyData 
-WHERE popularity IN 
-(SELECT popularity FROM SpotifyData ORDER BY popularity);
+FROM SpotifyData;
 
 #Interestingly, the average tempo of the top ten was 15 BPM higher at 136 BPM compared to 121 BPM average of all the songs!
 
