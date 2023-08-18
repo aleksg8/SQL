@@ -27,20 +27,11 @@ time_signature integer NOT NULL
 
 #Next, I explored the data using the following SQL. 
 
-#First I determined the avg popularity, danceability, and energy by artist and track. 
+#First I determined the top artists with a score of at least 90 by averaging the score of each artist's songs. 
+#I then ordered from most to least popular.
 
-SELECT
-artist_name
-,track_name
-,AVG(popularity)
-,AVG(danceability)
-,AVG(energy)
-FROM BIT_DB.spotifydata
-GROUP BY artist_name, track_name
+SELECT artist_name, AVG(popularity) AS average_popularity FROM BIT_DB.Spotifydata
+GROUP BY artist_name HAVING average_popularity >= 90
+ORDER BY average_popularity DESC
 
-#Then I determined who the Top 10 artists are by popularity
 
-SELECT track_name, artist_name, popularity
-FROM BIT_DB.spotifydata
-ORDER BY popularity DESC
-LIMIT 10
